@@ -28,7 +28,7 @@ D1 = jnp.diag(-jnp.ones(N-1), -1) + jnp.diag(jnp.ones(N-1), 1) # Using a built i
 D1 = D1.at[0, 0].set(0).at[-1, -1].set(0) # setting the no flux boundary conditions
 D1 /= (2 * dx)
 
-# Construct the second derivative matrix (central difference)
+# Second derivative matrix using Central-Diffs
 D2 = jnp.diag(-2 * jnp.ones(N), 0) + jnp.diag(jnp.ones(N-1), 1) + jnp.diag(jnp.ones(N-1), -1)
 D2 = D2.at[0, 0].set(0).at[-1, -1].set(0)  # No-flux boundary conditions
 D2 /= dx**2
